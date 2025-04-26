@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parth Ashok Dabhi | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #d8bfd8, #e6e6fa);
+        color: #333;
+      }
+
+      #preloader {
+        background: #fff;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .loader {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #6a0dad;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 10px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+      }
+
+      header {
+        background: url("https://www.transparenttextures.com/patterns/stardust.png"),
+          #3b0066;
+        background-attachment: fixed;
+        border-radius: 20px;
+        padding: 60px 20px 40px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(75, 0, 130, 0.2);
+        margin-bottom: 50px;
+        color: #fff;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .typewriter {
+        display: inline-block;
+        overflow: hidden;
+        border-right: 2px solid #fff;
+        white-space: nowrap;
+        animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+        font-size: 1.2rem;
+        max-width: 100%;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      section {
+        background: #ffffffee;
+        padding: 30px;
+        border-radius: 20px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 20px rgba(147, 112, 219, 0.2);
+      }
+
+      section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #6a0dad;
+        border-bottom: 2px solid #6a0dad;
+        display: inline-block;
+      }
+
+      .about-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .about-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .about-text {
+        flex: 1 1 60%;
+        background: #ffffffee;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(147, 112, 219, 0.2);
+      }
+
+      .about-photo {
+        flex: 1 1 35%;
+        text-align: center;
+      }
+
+      .about-photo img {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 40px;
+        margin-top: 30px;
+      }
+
+      .circle {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background: conic-gradient(
+          var(--color, #6a0dad) var(--percent),
+          #f0f0f0 0
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s;
+        text-align: center;
+      }
+
+      .circle:hover {
+        transform: scale(1.05);
+      }
+
+      .circle span {
+        font-size: 13px;
+      }
+
+      .tech-icons {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .tech-icons div {
+        text-align: center;
+        width: 80px;
+      }
+
+      .tech-icons img {
+        width: 60px;
+        margin-bottom: 5px;
+      }
+
+      .social-icons {
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .social-icons a {
+        width: 50px;
+        height: 50px;
+        background: #f0f0f0;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+      }
+
+      .social-icons a:hover img {
+        filter: brightness(0) invert(1);
+      }
+
+      .instagram:hover {
+        background: #e1306c;
+      }
+      .whatsapp:hover {
+        background: #25d366;
+      }
+      .linkedin:hover {
+        background: #0077b5;
+      }
+      .github:hover {
+        background: #333;
+      }
+
+      .social-icons img {
+        width: 24px;
+      }
+
+      form input,
+      form textarea {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        font-family: inherit;
+      }
+
+      footer {
+        text-align: center;
+        margin: 60px 0 20px;
+        color: #999;
+      }
+
+      @media (max-width: 600px) {
+        .typewriter {
+          font-size: 1rem;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .about-section {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .about-photo img {
+          max-width: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="loader"></div>
+      <p>Loading...</p>
+    </div>
+
+    <header>
+      <h1>Parth Ashok Dabhi</h1>
+      <div class="typewriter">
+        Creative Web Developer | UI/UX Enthusiast | Problem Solver
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="about" class="about-section">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+            Hello! I'm Parth, a passionate front-end developer who crafts
+            elegant and responsive websites using modern tools. With a focus on
+            user experience and clean code, I bring ideas to life in the
+            browser.
+          </p>
+        </div>
+        <div class="about-photo">
+          <img src="images/Myimg.jpg" alt="Parth Dabhi" />
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skill-grid">
+          <div class="circle" style="--percent: 80%; --color: #3498db">
+            <span>HTML: 80%</span>
+          </div>
+          <div class="circle" style="--percent: 70%; --color: #f39c12">
+            <span>CSS: 70%</span>
+          </div>
+          <div class="circle" style="--percent: 75%; --color: #2ecc71">
+            <span>C: 75%</span>
+          </div>
+          <div class="circle" style="--percent: 40%; --color: #e67e22">
+            <span>JS: 40%</span>
+          </div>
+          <div class="circle" style="--percent: 0%; --color: #95a5a6">
+            <span>Node: 0%</span>
+          </div>
+          <div class="circle" style="--percent: 0%; --color: #95a5a6">
+            <span>React: 0%</span>
+          </div>
+          <div class="circle" style="--percent: 80%; --color: #9b59b6">
+            <span>PL/SQL: 80%</span>
+          </div>
+          <div class="circle" style="--percent: 40%; --color: #34495e">
+            <span>Git: 40%</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Tech Stack</h2>
+        <div class="tech-icons">
+          <div>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+            />
+            <div>HTML</div>
+          </div>
+          <div>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+            />
+            <div>CSS</div>
+          </div>
+          <div>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            />
+            <div>JavaScript</div>
+          </div>
+          <div>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+            />
+            <div>Git</div>
+          </div>
+          <div>
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+            />
+            <div>VS Code</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+          <li>
+            <strong>Portfolio Website:</strong> Clean personal portfolio using
+            HTML & CSS
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Courses Done</h2>
+        <ul>
+          <li>MS-CIT</li>
+          <li>Tally Prime</li>
+          <li>Assistant Computer Operator</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          Email:
+          <a href="mailto:dabhiparthsinh0002@gmail.com"
+            >dabhiparthsinh0002@gmail.com</a
+          >
+        </p>
+        <p>Phone: +91-9168107166</p>
+        <p>
+          GitHub:
+          <a href="https://github.com/Parthdabhi02" target="_blank"
+            >github.com/Parthdabhi02</a
+          >
+        </p>
+        <p>
+          LinkedIn:
+          <a
+            href="https://www.linkedin.com/in/parth-dabhi-a885a432b"
+            target="_blank"
+            >linkedin.com/in/parth-dabhi</a
+          >
+        </p>
+
+        <div class="social-icons">
+          <a
+            class="instagram"
+            href="https://www.instagram.com/mr__p_a_r_t_h___"
+            target="_blank"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+              alt="Instagram"
+            />
+          </a>
+          <a class="whatsapp" href="https://wa.me/919168107166" target="_blank">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+              alt="WhatsApp"
+            />
+          </a>
+          <a
+            class="linkedin"
+            href="https://www.linkedin.com/in/parth-dabhi-a885a432b"
+            target="_blank"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+              alt="LinkedIn"
+            />
+          </a>
+          <a
+            class="github"
+            href="https://github.com/Parthdabhi02"
+            target="_blank"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+              alt="GitHub"
+            />
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Feedback</h2>
+        <form>
+          <input type="email" placeholder="Your Email (for login)" required />
+          <input type="password" placeholder="Password" required />
+          <textarea rows="5" placeholder="Your Feedback" required></textarea>
+          <input type="submit" value="Submit Feedback" />
+        </form>
+      </section>
+    </div>
+
+    <footer>© 2025 Parth Ashok Dabhi. All rights reserved.</footer>
+
+    <script>
+      window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
+        preloader.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
